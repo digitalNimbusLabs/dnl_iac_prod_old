@@ -8,38 +8,29 @@ variable "root_name" {
   default = "Digital Nimbus Labs"
 }
 
-variable "region" {
-    default = "AM"
+variable "deploy_management_resources" {
+  type    = bool
+  default = true
 }
 
-
-variable "location" {
-    default = "EastUS"
+variable "log_retention_in_days" {
+  type    = number
+  default = 50
 }
 
-
-variable "environment" {
-    default = "Dev"
+variable "security_alerts_email_address" {
+  type    = string
+  default = "contact@digitalnimbuslabs.com" # Replace this value with your own email address.
 }
 
-
-variable "application" {
-    default = "capsule"
+variable "management_resources_location" {
+  type    = string
+  default = "southcentralus"
 }
 
-
-variable "app_abbreviation" {
-    default = "shp"
-}
-
-
-variable "name" {
-    default = "foundation"
-}
-
-
-variable "tags" {
-    default = {
-
-    }
+variable "management_resources_tags" {
+  type = map(string)
+  default = {
+    demo_type = "deploy_management_resources_custom"
+  }
 }
