@@ -1,3 +1,13 @@
+variable "root_id" {
+  type    = string
+  default = "dnl"
+}
+
+variable "root_name" {
+  type    = string
+  default = "Digital Nimbus Labs"
+}
+
 variable "region" {
     default = "AM"
 }
