@@ -34,15 +34,3 @@ variable "management_resources_tags" {
     demo_type = "deploy_management_resources_custom"
   }
 }
-
-
-variable "name" {
-    default = "foundation"
-}
-
-
-variable "tags" {
-    default = {
-
-    }
-}
