@@ -19,6 +19,9 @@ module "enterprise_scale" {
   root_parent_id = data.azurerm_client_config.core.tenant_id
   root_id        = "dnl"
   root_name      = "Digital Nimbus Labs"
+  
+  deploy_management_resources = true
+  subscription_id_management  = data.azurerm_client_config.core.subscription_id
  
 
 
