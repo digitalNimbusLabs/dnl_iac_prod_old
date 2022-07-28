@@ -19,5 +19,28 @@ module "enterprise_scale" {
   root_parent_id = data.azurerm_client_config.core.tenant_id
   root_id        = "dnl"
   root_name      = "Digital Nimbus Labs"
+ 
+  custom_landing_zones = {
+    "${var.root_id}-prod" = {
+      display_name               = "${upper(var.root_id)} Prod"
+      parent_management_group_id = "${var.root_id}-landing-zones"
+      subscription_ids           = []
+      archetype_config = {
+        archetype_id   = "customer_online"
+        parameters     = {}
+        access_control = {}
+      }
+    }
+    "${var.root_id}-nonprod" = {
+      display_name               = "${upper(var.root_id)} NonProd"
+      parent_management_group_id = "${var.root_id}-landing-zones"
+      subscription_ids           = []
+      archetype_config = {
+        archetype_id   = "customer_online"
+        parameters     = {}
+        access_control = {}
+      }
+    }
+  }
 
 }
