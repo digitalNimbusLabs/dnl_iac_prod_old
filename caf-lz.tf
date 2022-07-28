@@ -22,7 +22,30 @@ module "enterprise_scale" {
   
   deploy_management_resources = true
   subscription_id_management  = data.azurerm_client_config.core.subscription_id
- 
+  
+  custom_landing_zones = {
+    "${var.root_id}-prod" = {
+      display_name               = "${upper(var.root_id)} Prod"
+      parent_management_group_id = "${var.root_id}-landing-zones"
+      subscription_ids           = []
+      archetype_config = {
+        archetype_id   = "customer_online"
+        parameters     = {}
+        access_control = {}
+      }
+    }
+    "${var.root_id}-nonprod" = {
+      display_name               = "${upper(var.root_id)} NonProd"
+      parent_management_group_id = "${var.root_id}-landing-zones"
+      subscription_ids           = []
+      archetype_config = {
+        archetype_id   = "customer_online"
+        parameters     = {}
+        access_control = {}
+      }
+    }
+  }
+
 
 
 }
