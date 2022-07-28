@@ -23,6 +23,7 @@ module "enterprise_scale" {
   
   deploy_management_resources = true
   subscription_id_management  = data.azurerm_client_config.core.subscription_id
+  configure_management_resources = local.configure_management_resources
   
   custom_landing_zones = {
     "${var.root_id}-prod" = {
